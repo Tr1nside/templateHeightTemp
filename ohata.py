@@ -15,6 +15,8 @@ class OhataWindow(QWidget):
         grid_layout = QGridLayout()
         grid_layout.addWidget(self.ui)
         self.setLayout(grid_layout)
+        self.setMinimumSize(400, 250)
+        self.setMaximumSize(400, 250)
 
         self.setWindowTitle("Модель Окамура-Хата")
 
