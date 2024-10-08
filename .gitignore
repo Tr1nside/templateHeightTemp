@@ -1,6 +1,10 @@
 venv
 .ruff_cache
+<<<<<<< HEAD
 __pycache__
 *.pyc
 test.py
 data.txt
+=======
+__pycache__
+>>>>>>> 6590f37 (create ohata.py; copy/paste and change ohata model window)

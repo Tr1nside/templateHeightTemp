@@ -5,7 +5,11 @@ from math import log10
 
 
 class OhataWindow(QWidget):
+<<<<<<< HEAD
     def __init__(self, width: int, height: int, parent=None):
+=======
+    def __init__(self,  width: int, height: int, parent=None):
+>>>>>>> 6590f37 (create ohata.py; copy/paste and change ohata model window)
         QWidget.__init__(self, parent)
         designer_file = QFile("ohata.ui")
         designer_file.open(QFile.ReadOnly)
@@ -15,8 +19,11 @@ class OhataWindow(QWidget):
         grid_layout = QGridLayout()
         grid_layout.addWidget(self.ui)
         self.setLayout(grid_layout)
+<<<<<<< HEAD
         self.setMinimumSize(400, 250)
         self.setMaximumSize(400, 250)
+=======
+>>>>>>> 6590f37 (create ohata.py; copy/paste and change ohata model window)
 
         self.setWindowTitle("Модель Окамура-Хата")
 
@@ -36,12 +43,17 @@ class OhataWindow(QWidget):
         self.calculate(self.get_data())
 
     def get_data(self):
+<<<<<<< HEAD
         data = (
             int(self.ui.lineEdit_freq.text()),
             int(self.ui.lineEdit_ht_bs.text()),
             int(self.ui.lineEdit_ht_ms.text()),
             int(self.ui.lineEdit_bs_ms.text()),
         )
+=======
+        data = (int(self.ui.lineEdit_freq.text()), int(self.ui.lineEdit_ht_bs.text()), int(self.ui.lineEdit_ht_ms.text()),
+                int(self.ui.lineEdit_bs_ms.text()))
+>>>>>>> 6590f37 (create ohata.py; copy/paste and change ohata model window)
         return data
 
     def calculate(self, data: tuple):
@@ -53,6 +65,7 @@ class OhataWindow(QWidget):
         alpha = (1.1 * log_f - 0.7) * data[2] - (1.56 * log_f - 0.8)
         kf = 4.78 * pow(log_f, 2) - 18.33 * log_f + 40.94
 
+<<<<<<< HEAD
         power = (
             pt
             - 69.55
@@ -62,5 +75,8 @@ class OhataWindow(QWidget):
             + alpha
             + kf
         )
+=======
+        power = pt - 69.55 - 26.16 * log_f - (44.9 - 6.55 * log_ht) * log_r + 13.82 * log_ht + alpha + kf
+>>>>>>> 6590f37 (create ohata.py; copy/paste and change ohata model window)
 
         self.ui.lineEdit_power.setText(str(power))
