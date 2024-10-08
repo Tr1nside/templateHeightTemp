@@ -6,6 +6,7 @@ import data_manage as DataM
 from ohata import OhataWindow
 from data_manage import get_data
 
+
 class MainWidget(QWidget):
     def __init__(self, width: int, height: int, parent=None):
         QWidget.__init__(self, parent)
@@ -31,7 +32,6 @@ class MainWidget(QWidget):
         self.ui.timeEdit.setDateRange(self.dates[0], self.dates[1])
 
         self.data = get_data("./data_files/", "./data.txt")
-        print(self.data)
 
     def open_ohata(self):
         self.win = OhataWindow(self.width, self.height)
@@ -48,5 +48,3 @@ def start_program():
 
 if __name__ == "__main__":
     start_program()
-
-    
