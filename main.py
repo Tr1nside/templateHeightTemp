@@ -22,11 +22,11 @@ class MainWidget(QWidget):
         self.dates = tuple  # Создаем пустой кортеж для хранения первой и последней даты
         DataM.get_first_last_date(self)
         self.ui.timeEdit.setDateRange(self.dates[0], self.dates[1])
-    
 
     def open_ohata(self):
         self.win = OhataWindow(self.width, self.height)
         self.win.show()
+
 
 def start_program():
     app = QApplication(sys.argv)

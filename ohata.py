@@ -5,7 +5,7 @@ from math import log10
 
 
 class OhataWindow(QWidget):
-    def __init__(self,  width: int, height: int, parent=None):
+    def __init__(self, width: int, height: int, parent=None):
         QWidget.__init__(self, parent)
         designer_file = QFile("ohata.ui")
         designer_file.open(QFile.ReadOnly)
@@ -34,8 +34,12 @@ class OhataWindow(QWidget):
         self.calculate(self.get_data())
 
     def get_data(self):
-        data = (int(self.ui.lineEdit_freq.text()), int(self.ui.lineEdit_ht_bs.text()), int(self.ui.lineEdit_ht_ms.text()),
-                int(self.ui.lineEdit_bs_ms.text()))
+        data = (
+            int(self.ui.lineEdit_freq.text()),
+            int(self.ui.lineEdit_ht_bs.text()),
+            int(self.ui.lineEdit_ht_ms.text()),
+            int(self.ui.lineEdit_bs_ms.text()),
+        )
         return data
 
     def calculate(self, data: tuple):
@@ -47,6 +51,14 @@ class OhataWindow(QWidget):
         alpha = (1.1 * log_f - 0.7) * data[2] - (1.56 * log_f - 0.8)
         kf = 4.78 * pow(log_f, 2) - 18.33 * log_f + 40.94
 
-        power = pt - 69.55 - 26.16 * log_f - (44.9 - 6.55 * log_ht) * log_r + 13.82 * log_ht + alpha + kf
+        power = (
+            pt
+            - 69.55
+            - 26.16 * log_f
+            - (44.9 - 6.55 * log_ht) * log_r
+            + 13.82 * log_ht
+            + alpha
+            + kf
+        )
 
         self.ui.lineEdit_power.setText(str(power))
