@@ -4,10 +4,7 @@ from PySide2.QtCore import QFile
 import sys
 import data_manage as DataM
 from ohata import OhataWindow
-<<<<<<< HEAD
 from data_manage import get_data
-=======
->>>>>>> 6590f37 (create ohata.py; copy/paste and change ohata model window)
 
 
 class MainWidget(QWidget):
@@ -21,7 +18,6 @@ class MainWidget(QWidget):
         self.setMinimumSize(600, 400)
         self.setWindowTitle("Фамилия И.О.")
 
-<<<<<<< HEAD
         # Создаю layout и добавляю в него фреймы c объектами
         main_layout = QVBoxLayout()
         self.setLayout(main_layout)
@@ -29,18 +25,11 @@ class MainWidget(QWidget):
         main_layout.addWidget(self.ui.frame_2)
 
         # Подключаем кнопки
-=======
->>>>>>> 6590f37 (create ohata.py; copy/paste and change ohata model window)
         self.ui.ohataButton.clicked.connect(self.open_ohata)
 
         self.dates = tuple  # Создаем пустой кортеж для хранения первой и последней даты
         DataM.get_first_last_date(self)
         self.ui.timeEdit.setDateRange(self.dates[0], self.dates[1])
-    
-
-    def open_ohata(self):
-        self.win = OhataWindow(self.width, self.height)
-        self.win.show()
 
         self.data = get_data("./data_files/", "./data.txt")
 
