@@ -50,3 +50,40 @@ def get_data(dir_path: str, data_file_path: str):
         data = tuple(line.split("\t") for line in lines)
     file.close()
     return data
+
+
+def check_date(self):
+    flag = False
+    time = int(self.ui.timeEdit.dateTime().toString("H:mm").replace(":", ""))
+    if time % 5 == 0:
+        flag = True
+    print(time)
+    return flag
+
+
+def refactoring_data(self):
+    first_id = 0
+
+    for ar in self.data:
+        for elem in ar:
+            if elem == self.first_date:
+                first_id = self.data.index(ar)
+
+    dt = []
+    dt.append(self.data[0])
+    for i in range(first_id, first_id + 1):
+        dt.append(self.data[i])
+    return dt
+
+
+def create_elements(self):
+    temps = []
+    heights = []
+
+    for i in range(1, 22):
+        temps.append(float(self.dt[1][i].replace(",", ".")))
+        heights.append(float(self.dt[0][i].replace(",", ".")))
+
+    last_temp = float(self.dt[1][22].replace(",", "."))
+
+    return temps, heights, last_temp
